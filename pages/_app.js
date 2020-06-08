@@ -1,18 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
-import Modal from "react-modal";
+import React from "react";
+import { AuthContextProvider } from "../components/AuthContext";
 
 const App = ({ Component, pageProps }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(true);
-
-  Modal.setAppElement("#__next");
-
   return (
-    <Fragment>
-      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-        Oh, hi there!
-      </Modal>
+    <AuthContextProvider>
       <Component {...pageProps} />;
-    </Fragment>
+    </AuthContextProvider>
   );
 };
 
